@@ -1,0 +1,50 @@
+﻿@model System.Collections.Generic.IEnumerable<KursAnaliz.Data.Model.Kursiyerler>
+@{ 
+    ViewBag.Title = "Index";
+}
+
+<h2>Kursiyerler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Kursiyer", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kurslar.KursAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KursiyerAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KursiyerSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KatilimTarihi)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Kurslar.KursAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.KursiyerAd)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.KursiyerSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.KatilimTarihi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.KursiyerId })
+                @Html.ActionLink("Sil", "Delete", new { id = item.KursiyerId })
+            </td>
+        </tr>
+    }
+</table>

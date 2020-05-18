@@ -1,0 +1,97 @@
+﻿@model KursAnaliz.Views.ViewModel.KursPageModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Yoklama"
+	},
+	axisY: {
+		includeZero: false
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+		type: "line",
+		name: "@Model.Kurs.KursAdi",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPoints1)}]
+});
+chart.render();
+
+}
+    </script>
+</head>
+<body>
+      <h3 align="center">Kurs Analizi</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+
+
+
+                <div class="row">
+                    <table>
+                        <tr align="center">
+                            <th > Kurs Adi</th>
+                            <th > Tarih   </th>
+                        </tr>
+
+                        @foreach (var item in Model.Tarih)
+                        {
+                            <tr align="center">
+                                <td >
+                                    @Model.Kurs.KursAdi
+                                </td>
+
+                                <td>
+                                    &nbsp; @item
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                    <table>
+                        <tr>
+                            <th>Gelen Kişi</th>
+                        </tr>
+
+                        @foreach (var item in Model.Sayi)
+                        {
+                            <tr>
+                                <td align="center">
+                                    @item
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="col-md-5">  
+                <div class="row">
+                    <div>
+                        <strong  style="text-align:center"> Grafik</strong>
+                    </div>
+                   
+                    <div id="chartContainer" style="height:300px; width: 400px;"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Listeye Dön", "Index")
+    </div>
+</body>
+</html>                 

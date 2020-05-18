@@ -1,0 +1,64 @@
+﻿@model System.Collections.Generic.IEnumerable<KursAnaliz.Data.Model.Kurslar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1",
+	exportEnabled: true,
+	animationEnabled: true,
+	title: {
+		text: "KURSLARA KATILIM ORANI"
+	},
+
+	data: [{
+		type: "pie",
+		startAngle: 180,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabel: "{label} - {y}%",
+		dataPoints: @Html.Raw(ViewBag.DataPoints)	}]
+});
+chart.render();
+
+}
+    </script>
+</head>
+<body>
+    <h2>Kurslar</h2>
+
+    <p>
+        @Html.ActionLink("Yeni Kurs Ekle", "Create", "Kurs")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KursAdi)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.KursAdi)
+                </td>
+                <td>
+
+                    @Html.ActionLink("GünlükDetay", "Details", new { id = item.KursId }) |
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.KursId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.KursId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>

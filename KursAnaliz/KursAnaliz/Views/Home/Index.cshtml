@@ -1,0 +1,79 @@
+﻿@model System.Collections.Generic.IEnumerable<KursAnaliz.Data.Model.Kurslar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kurs Yönetimi</h2>
+
+<br />
+<div class="container body-content">
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="panel panel-primary ">
+                <a href="/kurs">
+                    <div class="panel panel-heading">
+                        <div class="container-fluid body-content">
+
+
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-th fa-5x"> </i>
+                                </div>
+
+                                <div class="col-xs-6 text-right">
+                                    <div>
+                                        <br />
+                                        &nbsp; KURSLAR(@Model.Count())
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/kurs">
+                    <div class="panel-footer">
+                        <span class="pull-left"> Yeni Kurs </span>
+                        <span class="pull-right"> <i class="fa fa-arrow-circle-right"> </i> </span>
+                        <div class="clearfix"> </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+         
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <a href="/kursiyer">
+                    <div class="panel panel-heading">
+                        <div class="container-fluid body-content">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <i class="fa fa-tasks fa-5x"> </i>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <div>
+                                        <br />
+                                        &nbsp;KURSİYERLER(@ViewBag.ToplamKursiyer)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</a>
+                <a href="/kursiyer/create">
+                    <div class="panel-footer">
+                        <span class="pull-left"> Yeni Kursiyer </span>
+                        <span class="pull-right"> <i class="fa fa-arrow-circle-right"> </i> </span>
+                        <div class="clearfix"> </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+

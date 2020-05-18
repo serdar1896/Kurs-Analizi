@@ -1,0 +1,51 @@
+﻿@model KursAnaliz.Data.Model.Kursiyerler
+@{
+    ViewBag.Title = "Delete'";
+}
+
+<h2>Kursiyer Silme</h2>
+<h3>
+    Bu kursiyeri silmek istiyor musunuz?
+</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KursiyerAd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KursiyerAd)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KursiyerSoyad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KursiyerSoyad)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kurslar.KursAdi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kurslar.KursAdi)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KatilimTarihi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KatilimTarihi)
+        </dd>
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        @Html.ActionLink("Listeye Dön", "Index")
+    </div>
+}
