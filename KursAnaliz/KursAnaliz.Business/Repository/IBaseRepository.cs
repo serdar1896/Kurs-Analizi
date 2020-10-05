@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KursAnaliz.Business.Infrastructure
+namespace KursAnaliz.Business.Repository
 {
     public interface IBaseRepository<T> where T : class
     {

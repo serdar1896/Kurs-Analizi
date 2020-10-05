@@ -1,5 +1,4 @@
-﻿using KursAnaliz.Business.Infrastructure;
-using KursAnaliz.Data.DataContext;
+﻿using KursAnaliz.Data.DataContext;
 using KursAnaliz.Data.Model;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;

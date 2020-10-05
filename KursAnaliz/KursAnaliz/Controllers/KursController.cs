@@ -29,6 +29,7 @@ namespace KursAnaliz.Controllers
             var kursiyertoplam = _kursiyerlerRepository.GetAll().ToList().Count;
 
             List<DataPoint> dataPoints = new List<DataPoint>();
+
             foreach (Kurslar item in kurslist)
             {
                 int kurskursiyer = _kursiyerlerRepository.GetAll().Where(x => x.KursId == item.KursId).ToList().Count;
@@ -44,6 +45,7 @@ namespace KursAnaliz.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Kurslar kurslar)

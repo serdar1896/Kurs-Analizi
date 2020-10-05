@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using KursAnaliz.Business.Infrastructure;
 using KursAnaliz.Business.Repository;
 using KursAnaliz.Data.Model;
 using System.Web.Mvc;
